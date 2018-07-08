@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+        <div class="navbar-right">
+            <vc:login-logout></vc:login-logout>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        @RenderBody()
+
+        <footer>
+            @RenderSection("footer", required: false)
+
+            @*@await Component.InvokeAsync("Greeter")*@
+            <vc:greeter></vc:greeter>
+
+            @*@if (User.Identity.IsAuthenticated) {
+
+                    foreach (var identity in User.Identities) {
+
+                        <h3>@identity.Name</h3>
+                        <ul>
+                            @foreach(var claim in identity.Claims) {
+
+                                <li>@claim.Type  - @claim.Value</li>
+
+                            }
+                        </ul>
+
+                    }
+
+                } else {
+
+                    <div>You are anonymous</div>
+
+                }*@
+
+        </footer>
+
+    </div>
+
+    @*<environment include="Development">
+        <script src="~/node_modules/jquery/dist/jquery.js"></script>
+        <script src="~/node_modules/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+    </environment>*@
+
+    <script src="~/node_modules/jquery/dist/jquery.js"></script>
+    <script src="~/node_modules/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+
+
+</body>
+</html>

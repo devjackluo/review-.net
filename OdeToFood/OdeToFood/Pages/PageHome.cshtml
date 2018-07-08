@@ -1,0 +1,30 @@
+﻿@page
+@model PageHomeModel
+
+<h1>Page View All Restaurants</h1>
+
+<table>
+    @foreach (var restaurant in Model.hmodel.Restaurants) {
+
+        <section>
+            <h3>@restaurant.Name</h3>
+            <div>
+                Cuisine: @restaurant.Cuisine
+            </div>
+            <div>
+                <!--ASP.NET Core TagHelpers-->
+                <a asp-action="Details" asp-route-id="@restaurant.Id">TagHelper</a>
+
+                <a asp-page="/Restaurants/Edit" asp-route-id="@restaurant.Id">Edit</a>
+            </div>
+        </section>
+
+    }
+</table>
+
+<br />
+<br />
+<br />
+
+
+<a asp-action="Create">Add Restaurant</a>

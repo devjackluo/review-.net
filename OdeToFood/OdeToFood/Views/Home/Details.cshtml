@@ -1,0 +1,26 @@
+﻿@model Restaurant;
+
+<!--Better to check for null in controller-->
+@*@if (Model == null) {
+
+        <div>not found</div>
+
+    } else {
+
+        <h1>@Model.Name</h1>
+
+        <div>... details ...</div>
+
+    }*@
+
+
+@{ 
+    ViewBag.Title = Model.Name;
+}
+
+<h1>@Model.Name</h1>
+
+<div>id: @Model.Id</div>
+<div>cuisine: @Model.Cuisine</div>
+
+<a asp-action="Index" asp-controller="Home">Home</a>
